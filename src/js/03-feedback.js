@@ -17,6 +17,7 @@ function detectForm(e) {
   fromData[e.target.name] = e.target.value;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(fromData));
 }
+
 function onFormSubmit(e) {
   e.preventDefault();
   const formData = new FormData(form);
@@ -31,6 +32,6 @@ function populateEmailForm() {
   if (savedMessage) {
     emailForm.value = savedMessage.email || '';
     textArea.value = savedMessage.message || '';
-    formData = savedMessage;
+    fromData = savedMessage;
   }
 }
