@@ -22,15 +22,15 @@ function onFormSubmit(e) {
   const formData = new FormData(form);
   formData.forEach((key, value) => console.log(`${value}: ${key}`));
   e.currentTarget.reset();
-  localStorage.removeItem(STORAGE_KEY);
+  localStorage.clear();
 }
 
 function populateEmailForm() {
   const savedMessage = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
   if (savedMessage) {
-    emailForm.value = savedMessage.email;
-    textArea.value = savedMessage.message;
+    emailForm.value = savedMessage.email || '';
+    textArea.value = savedMessage.message || '';
     formData = savedMessage;
   }
 }
